@@ -22,19 +22,15 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import React, { useState } from 'react';
+import React from 'react';
 import { CellProps, WithClassname } from '@jsonforms/core';
 import {
-  IconButton,
   OutlinedInput,
-  InputAdornment,
   InputBaseComponentProps,
   InputProps,
-  useTheme
 } from '@mui/material';
 import merge from 'lodash/merge';
-import Close from '@mui/icons-material/Close';
-import { JsonFormsTheme, useDebouncedChange } from '../util';
+import { useDebouncedChange } from '../util';
 
 interface MuiTextInputProps {
   muiInputProps?: InputProps['inputProps'];
@@ -44,7 +40,6 @@ interface MuiTextInputProps {
 const eventToValue = (ev:any) => ev.target.value === '' ? undefined : ev.target.value;
 
 export const MuiInputText = React.memo((props: CellProps & WithClassname & MuiTextInputProps) => { 
-  const [showAdornment, setShowAdornment] = useState(false);
   const {
     data,
     config,
@@ -74,16 +69,7 @@ export const MuiInputText = React.memo((props: CellProps & WithClassname & MuiTe
     inputProps.size = maxLength;
   };
   
-  const [inputText, onChange, onClear] = useDebouncedChange(handleChange, '', data, path, eventToValue);
-  const onPointerEnter = () => setShowAdornment(true);
-  const onPointerLeave = () => setShowAdornment(false);
-
-  const theme: JsonFormsTheme = useTheme();
-  
-  const closeStyle = {
-    background: theme.jsonforms?.input?.delete?.background || theme.palette.background.default,
-    borderRadius: '50%'
-  };
+  const [inputText, onChange] = useDebouncedChange(handleChange, '', data, path, eventToValue);
 
   return (
     <OutlinedInput
@@ -100,27 +86,6 @@ export const MuiInputText = React.memo((props: CellProps & WithClassname & MuiTe
       fullWidth={!appliedUiSchemaOptions.trim || maxLength === undefined}
       inputProps={inputProps}
       error={!isValid}
-      onPointerEnter={onPointerEnter}
-      onPointerLeave={onPointerLeave}
-      endAdornment={
-        <InputAdornment
-          position='end'
-          style={{
-            display:
-              !showAdornment || !enabled || data === undefined ? 'none' : 'flex',
-            position: 'absolute',
-            right: 0
-          }}
-        >
-          <IconButton
-            aria-label='Clear input field'
-            onClick={onClear}   
-            size='large'
-          >
-            <Close style={closeStyle}/>
-          </IconButton>
-        </InputAdornment>
-      }
       inputComponent={inputComponent}
     />
   );

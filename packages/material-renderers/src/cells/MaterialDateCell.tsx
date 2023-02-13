@@ -31,7 +31,7 @@ import {
   WithClassname
 } from '@jsonforms/core';
 import { withJsonFormsCellProps } from '@jsonforms/react';
-import Input from '@mui/material/Input';
+import OutlinedInput from '@mui/material/OutlinedInput';
 import merge from 'lodash/merge';
 
 export const MaterialDateCell = (props: CellProps & WithClassname) => {
@@ -49,7 +49,7 @@ export const MaterialDateCell = (props: CellProps & WithClassname) => {
   const appliedUiSchemaOptions = merge({}, config, uischema.options);
 
   return (
-    <Input
+    <OutlinedInput
       type='date'
       value={data || ''}
       onChange={ev => handleChange(path, ev.target.value)}

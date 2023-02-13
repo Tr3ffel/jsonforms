@@ -24,7 +24,7 @@
 */
 import React from 'react';
 import { CellProps, WithClassname } from '@jsonforms/core';
-import { Input } from '@mui/material';
+import { OutlinedInput } from '@mui/material';
 import merge from 'lodash/merge';
 import {useDebouncedChange} from '../util';
 
@@ -48,7 +48,7 @@ export const MuiInputNumber = React.memo((props: CellProps & WithClassname) => {
   const [inputValue, onChange] = useDebouncedChange(handleChange, '', data, path, eventToValue);
 
   return (
-    <Input
+    <OutlinedInput
       type='number'
       value={inputValue}
       onChange={onChange}

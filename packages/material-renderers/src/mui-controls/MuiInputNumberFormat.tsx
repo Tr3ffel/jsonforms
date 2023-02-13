@@ -24,7 +24,7 @@
 */
 import React, {useCallback} from 'react';
 import { CellProps, Formatted, WithClassname } from '@jsonforms/core';
-import { Input } from '@mui/material';
+import { OutlinedInput } from '@mui/material';
 import merge from 'lodash/merge';
 import { useDebouncedChange } from '../util';
 
@@ -56,7 +56,7 @@ export const MuiInputNumberFormat = React.memo(
 
 
     return (
-      <Input
+      <OutlinedInput
         type='text'
         value={inputValue}
         onChange={onChange}

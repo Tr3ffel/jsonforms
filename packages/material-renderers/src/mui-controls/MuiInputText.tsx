@@ -26,7 +26,7 @@ import React, { useState } from 'react';
 import { CellProps, WithClassname } from '@jsonforms/core';
 import {
   IconButton,
-  Input,
+  OutlinedInput,
   InputAdornment,
   InputBaseComponentProps,
   InputProps,
@@ -86,7 +86,7 @@ export const MuiInputText = React.memo((props: CellProps & WithClassname & MuiTe
   };
 
   return (
-    <Input
+    <OutlinedInput
       type={
         appliedUiSchemaOptions.format === 'password' ? 'password' : 'text'
       }

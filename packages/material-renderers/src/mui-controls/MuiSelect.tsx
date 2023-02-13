@@ -56,7 +56,7 @@ export const MuiSelect = React.memo((props: EnumCellProps & WithClassname & Tran
       value={data !== undefined ? data : ''}
       onChange={ev =>handleChange(path, ev.target.value || undefined)}
       fullWidth={true}
-      variant={'standard'}
+      variant={'outlined'}
     >
       {[<MenuItem value={''} key='jsonforms.enum.none'><em>{noneOptionLabel}</em></MenuItem>].concat(
         options.map(optionValue => (

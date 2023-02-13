@@ -108,7 +108,7 @@ export const MuiAutocomplete = (props: ControlProps & EnumCellProps & WithClassn
           return(
           <TextField
             label={label} 
-            variant={'standard'}
+            variant={'outlined'}
             type='text'
             inputProps={params.inputProps}
             inputRef={params.InputProps.ref}

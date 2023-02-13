@@ -24,7 +24,7 @@
 */
 import React from 'react';
 import { CellProps, WithClassname } from '@jsonforms/core';
-import { Input } from '@mui/material';
+import { OutlinedInput } from '@mui/material';
 import merge from 'lodash/merge';
 import { useDebouncedChange } from '../util';
 
@@ -43,7 +43,7 @@ export const MuiInputTime = React.memo((props: CellProps & WithClassname) => {
   const [inputValue, onChange] = useDebouncedChange(handleChange, '', data, path);
 
   return (
-    <Input
+    <OutlinedInput
       type='time'
       value={inputValue}
       onChange={onChange}

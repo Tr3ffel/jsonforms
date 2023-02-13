@@ -31,7 +31,11 @@ import {
   WithClassname
 } from '@jsonforms/core';
 import { withJsonFormsCellProps } from '@jsonforms/react';
-import OutlinedInput from '@mui/material/OutlinedInput';
+import {
+  OutlinedInput,
+  FormControl,
+  InputLabel,
+} from '@mui/material';
 import merge from 'lodash/merge';
 
 export const MaterialDateCell = (props: CellProps & WithClassname) => {
@@ -49,16 +53,19 @@ export const MaterialDateCell = (props: CellProps & WithClassname) => {
   const appliedUiSchemaOptions = merge({}, config, uischema.options);
 
   return (
-    <OutlinedInput
-      type='date'
-      value={data || ''}
-      onChange={ev => handleChange(path, ev.target.value)}
-      className={className}
-      id={id}
-      disabled={!enabled}
-      autoFocus={appliedUiSchemaOptions.focus}
-      fullWidth={true}
-    />
+    <FormControl variant="outlined">
+      <InputLabel htmlFor={id}>{props.label}</InputLabel>
+      <OutlinedInput
+        type='date'
+        value={data || ''}
+        onChange={ev => handleChange(path, ev.target.value)}
+        className={className}
+        id={id}
+        disabled={!enabled}
+        autoFocus={appliedUiSchemaOptions.focus}
+        fullWidth={true}
+      />
+    </FormControl>
   );
 };
 export const materialDateCellTester: RankedTester = rankWith(2, isDateControl);

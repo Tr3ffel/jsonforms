@@ -24,7 +24,11 @@
 */
 import React, {useCallback} from 'react';
 import { CellProps, Formatted, WithClassname } from '@jsonforms/core';
-import { OutlinedInput } from '@mui/material';
+import {
+  OutlinedInput,
+  FormControl,
+  InputLabel,
+} from '@mui/material';
 import merge from 'lodash/merge';
 import { useDebouncedChange } from '../util';
 
@@ -56,18 +60,21 @@ export const MuiInputNumberFormat = React.memo(
 
 
     return (
-      <OutlinedInput
-        type='text'
-        value={inputValue}
-        onChange={onChange}
-        className={className}
-        id={id}
-        disabled={!enabled}
-        autoFocus={appliedUiSchemaOptions.focus}
-        multiline={appliedUiSchemaOptions.multi}
-        fullWidth={!appliedUiSchemaOptions.trim || maxLength === undefined}
-        inputProps={inputProps}
-        error={!isValid}
-      />
+      <FormControl variant="outlined">
+        <InputLabel htmlFor={id}>{props.label}</InputLabel>
+        <OutlinedInput
+          type='text'
+          value={inputValue}
+          onChange={onChange}
+          className={className}
+          id={id}
+          disabled={!enabled}
+          autoFocus={appliedUiSchemaOptions.focus}
+          multiline={appliedUiSchemaOptions.multi}
+          fullWidth={!appliedUiSchemaOptions.trim || maxLength === undefined}
+          inputProps={inputProps}
+          error={!isValid}
+        />
+      </FormControl>
     );
   });

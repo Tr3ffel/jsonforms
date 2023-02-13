@@ -28,6 +28,8 @@ import {
   OutlinedInput,
   InputBaseComponentProps,
   InputProps,
+  FormControl,
+  InputLabel,
 } from '@mui/material';
 import merge from 'lodash/merge';
 import { useDebouncedChange } from '../util';
@@ -72,21 +74,24 @@ export const MuiInputText = React.memo((props: CellProps & WithClassname & MuiTe
   const [inputText, onChange] = useDebouncedChange(handleChange, '', data, path, eventToValue);
 
   return (
-    <OutlinedInput
-      type={
-        appliedUiSchemaOptions.format === 'password' ? 'password' : 'text'
-      }
-      value={inputText}
-      onChange={onChange}
-      className={className}
-      id={id}
-      disabled={!enabled}
-      autoFocus={appliedUiSchemaOptions.focus}
-      multiline={appliedUiSchemaOptions.multi}
-      fullWidth={!appliedUiSchemaOptions.trim || maxLength === undefined}
-      inputProps={inputProps}
-      error={!isValid}
-      inputComponent={inputComponent}
-    />
+    <FormControl variant="outlined">
+      <InputLabel htmlFor={id}>{props.label}</InputLabel>
+      <OutlinedInput
+        type={
+          appliedUiSchemaOptions.format === 'password' ? 'password' : 'text'
+        }
+        value={inputText}
+        onChange={onChange}
+        className={className}
+        id={id}
+        disabled={!enabled}
+        autoFocus={appliedUiSchemaOptions.focus}
+        multiline={appliedUiSchemaOptions.multi}
+        fullWidth={!appliedUiSchemaOptions.trim || maxLength === undefined}
+        inputProps={inputProps}
+        error={!isValid}
+        inputComponent={inputComponent}
+      />
+    </FormControl>
   );
 });

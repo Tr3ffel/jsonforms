@@ -75,7 +75,7 @@ export const MuiInputText = React.memo((props: CellProps & WithClassname & MuiTe
 
   return (
     <FormControl variant="outlined">
-      <InputLabel htmlFor={id}>{props.label}</InputLabel>
+      <InputLabel htmlFor={id}>{inputProps.label}</InputLabel>
       <OutlinedInput
         type={
           appliedUiSchemaOptions.format === 'password' ? 'password' : 'text'
@@ -83,6 +83,7 @@ export const MuiInputText = React.memo((props: CellProps & WithClassname & MuiTe
         value={inputText}
         onChange={onChange}
         className={className}
+        label={inputProps.label}
         id={id}
         disabled={!enabled}
         autoFocus={appliedUiSchemaOptions.focus}

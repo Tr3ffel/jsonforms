@@ -51,6 +51,7 @@ export const MuiInputTime = React.memo((props: CellProps & WithClassname) => {
       <InputLabel htmlFor={id}>{props.label}</InputLabel>
       <OutlinedInput
         type='time'
+        label={props.label}
         value={inputValue}
         onChange={onChange}
         className={className}

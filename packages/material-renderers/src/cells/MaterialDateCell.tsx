@@ -58,6 +58,7 @@ export const MaterialDateCell = (props: CellProps & WithClassname) => {
       <OutlinedInput
         type='date'
         value={data || ''}
+        label={props.label}
         onChange={ev => handleChange(path, ev.target.value)}
         className={className}
         id={id}

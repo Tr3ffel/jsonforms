@@ -64,6 +64,7 @@ export const MuiInputNumberFormat = React.memo(
         <InputLabel htmlFor={id}>{props.label}</InputLabel>
         <OutlinedInput
           type='text'
+          label={props.label}
           value={inputValue}
           onChange={onChange}
           className={className}

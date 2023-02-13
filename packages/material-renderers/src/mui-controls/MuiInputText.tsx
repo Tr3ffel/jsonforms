@@ -74,7 +74,7 @@ export const MuiInputText = React.memo((props: CellProps & WithClassname & MuiTe
   const [inputText, onChange] = useDebouncedChange(handleChange, '', data, path, eventToValue);
 
   return (
-    <FormControl variant="outlined">
+    <FormControl>
       <InputLabel htmlFor={id}>{inputProps.label}</InputLabel>
       <OutlinedInput
         type={

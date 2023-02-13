@@ -24,11 +24,7 @@
 */
 import React from 'react';
 import { CellProps, WithClassname } from '@jsonforms/core';
-import {
-  OutlinedInput,
-  FormControl,
-  InputLabel,
-} from '@mui/material';
+import { OutlinedInput } from '@mui/material';
 import merge from 'lodash/merge';
 import { useDebouncedChange } from '../util';
 
@@ -55,20 +51,17 @@ export const MuiInputInteger = React.memo(
     const [inputValue, onChange] = useDebouncedChange(handleChange, '', data, path, eventToValue);
 
     return (
-      <FormControl variant="outlined">
-        <InputLabel htmlFor={id}>{props.label}</InputLabel>
-        <OutlinedInput
-          type='number'
-          label={props.label}
-          value={inputValue}
-          onChange={onChange}
-          className={className}
-          id={id}
-          disabled={!enabled}
-          autoFocus={appliedUiSchemaOptions.focus}
-          inputProps={inputProps}
-          fullWidth={true}
-        />
-      </FormControl>
+      <OutlinedInput
+        type='number'
+        label={props.label}
+        value={inputValue}
+        onChange={onChange}
+        className={className}
+        id={id}
+        disabled={!enabled}
+        autoFocus={appliedUiSchemaOptions.focus}
+        inputProps={inputProps}
+        fullWidth={true}
+      />
     );
   });

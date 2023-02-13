@@ -37,7 +37,8 @@ export const MuiInputTime = React.memo((props: CellProps & WithClassname) => {
     uischema,
     path,
     handleChange,
-    config
+    config,
+    schema
   } = props;
   const appliedUiSchemaOptions = merge({}, config, uischema.options);
   const [inputValue, onChange] = useDebouncedChange(handleChange, '', data, path);
@@ -45,7 +46,7 @@ export const MuiInputTime = React.memo((props: CellProps & WithClassname) => {
   return (
     <OutlinedInput
       type='time'
-      label={props.label}
+      label={schema.title}
       value={inputValue}
       onChange={onChange}
       className={className}

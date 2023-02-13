@@ -43,7 +43,8 @@ export const MaterialDateCell = (props: CellProps & WithClassname) => {
     uischema,
     path,
     handleChange,
-    config
+    config,
+    schema
   } = props;
 
   const appliedUiSchemaOptions = merge({}, config, uischema.options);
@@ -52,7 +53,7 @@ export const MaterialDateCell = (props: CellProps & WithClassname) => {
     <OutlinedInput
       type='date'
       value={data || ''}
-      label={props.label}
+      label={schema.title}
       onChange={ev => handleChange(path, ev.target.value)}
       className={className}
       id={id}

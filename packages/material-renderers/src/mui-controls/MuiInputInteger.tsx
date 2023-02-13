@@ -42,7 +42,8 @@ export const MuiInputInteger = React.memo(
       uischema,
       path,
       handleChange,
-      config
+      config,
+      schema
     } = props;
     const inputProps = { step: '1' };
     
@@ -53,7 +54,7 @@ export const MuiInputInteger = React.memo(
     return (
       <OutlinedInput
         type='number'
-        label={props.label}
+        label={schema.title}
         value={inputValue}
         onChange={onChange}
         className={className}

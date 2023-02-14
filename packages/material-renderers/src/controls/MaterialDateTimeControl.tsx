@@ -112,7 +112,7 @@ export const MaterialDateTimeControl = (props: ControlProps) => {
           renderInput={params => (
             <ResettableTextField 
               {...params}
-              sx={{ my: 1 }}
+              margin="normal"
               rawValue={data}
               dayjsValueIsValid={value !== null}
               valueInInputFormat={valueInInputFormat}

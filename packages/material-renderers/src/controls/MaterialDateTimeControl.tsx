@@ -128,7 +128,7 @@ export const MaterialDateTimeControl = (props: ControlProps) => {
               InputLabelProps={data ? { shrink: true } : undefined}
               onFocus={onFocus}
               onBlur={onBlur}
-              variant={'standard'}
+              variant={'outlined'}
             />
           )
           }
